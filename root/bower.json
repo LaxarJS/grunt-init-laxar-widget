@@ -1,0 +1,21 @@
+{
+   "name": "{%= namespace %}.{%= name %}_{%= type %}",
+   "version": "{%= version %}",
+   "description": "{%= description || title %}",
+   {% if( licenses.length === 0 ) { %}"private": true,{%
+      }
+      else if( licenses.length === 1 ) { %}"license": "{%= licenses[0] %}",{%
+      }
+      else { %}"licenses": [ "{%= licenses.join('", "') %}"{%
+      }
+   %}
+   "dependencies": {
+      "laxar": "LaxarJS/laxar#{%= laxar_version %}",
+      "laxar_uikit": "LaxarJS/laxar_uikit#{%= laxar_version %}",
+      "laxar_patterns": "LaxarJS/laxar_patterns#{%= laxar_version %}"
+   },
+   "devDependencies": {
+      "es5-shim": "2.3.x",
+      "jasmine": "1.3.x"
+   }
+}

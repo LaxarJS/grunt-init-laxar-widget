@@ -1,0 +1,14 @@
+{
+   "name": "{%= title %}",
+   "description": "{%= description %}",
+   "version": {
+      "spec": "{%= version %}"
+   },
+
+   "integration": {
+      "type": "{%= laxar_integration %}"
+   },
+
+   "features": {
+   }
+}
