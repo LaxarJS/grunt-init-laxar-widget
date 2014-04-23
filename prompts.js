@@ -31,6 +31,10 @@ function extend( object /*, source1, source2, ..., sourceN */ ) {
    }, {} );
 }
 
+function stripType( string, type ) {
+   return string.replace( new RegExp( '[-_]' + type + '$', 'i' ), '' );
+}
+
 /**
  * Default prompts for Widgets, Activities, etc.
  */
@@ -40,12 +44,18 @@ module.exports = function prompts( options, init, callback ) {
 
    var promptList = [
       extend( init.prompt( 'name' ), {
-         message: type + ' name'
+         message: typeTitle + ' name',
+         default: function( value, props, done ) {
+            done( null, path.basename( process.cwd() ) );
+         },
+         sanitize: function( value, props, done ) {
+            done( null, stripType( value, type ) );
+         }
       } ),
       extend( init.prompt( 'title' ), {
-         message: type + ' title',
+         message: typeTitle + ' title',
          default: function( value, props, done ) {
-            done( null, toCamelCase( props.name ) + typeTitle );
+            done( null, toCamelCase( stripType( props.name, type ) ) + typeTitle );
          }
       } ),
       init.prompt( 'description', 'My new LaxarJS ' + type ),
@@ -77,7 +87,7 @@ module.exports = function prompts( options, init, callback ) {
        */
       promptList.unshift( {
          name: 'namespace',
-         message: type + ' namespace',
+         message: typeTitle + ' namespace',
          default: function( value, props, done ) {
             var directory = path.dirname( process.cwd() ).split( path.sep );
             var index = directory.indexOf( 'widgets' );
