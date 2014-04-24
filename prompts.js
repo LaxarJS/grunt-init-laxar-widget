@@ -42,6 +42,9 @@ module.exports = function prompts( options, init, callback ) {
    var type = options.type;
    var typeTitle = toTitleCase( type );
 
+   var isApp = /application$/.test(type);
+   var isWidget = /(widget|activity)$/.test(type);
+
    var promptList = [
       extend( init.prompt( 'name' ), {
          message: typeTitle + ' name',
@@ -55,7 +58,7 @@ module.exports = function prompts( options, init, callback ) {
       extend( init.prompt( 'title' ), {
          message: typeTitle + ' title',
          default: function( value, props, done ) {
-            done( null, toCamelCase( stripType( props.name, type ) ) + typeTitle );
+            done( null, toCamelCase( stripType( props.name, type ) ) + ( isApp ? '' : typeTitle ) );
          }
       } ),
       init.prompt( 'description', 'My new LaxarJS ' + type ),
@@ -81,7 +84,16 @@ module.exports = function prompts( options, init, callback ) {
       }
    ];
 
-   if( /(widget|activity)$/.test(type) ) {
+   if( isApp ) {
+      promptList.push( {
+         name: 'laxar_port',
+         message: 'Development server port',
+         default: 8000,
+         validator: /\d+/,
+         warning: 'Must be a valid HTTP port number'
+      } );
+   }
+   else if( isWidget ) {
       /**
        * Ask for the widget namespace first.
        */
