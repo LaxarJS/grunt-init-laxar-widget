@@ -11,8 +11,8 @@
    %}
    "dependencies": {
       "laxar": "LaxarJS/laxar#{%= laxar_version %}",
-      "laxar_uikit": "LaxarJS/laxar_uikit#{%= laxar_version %}",
-      "laxar_patterns": "LaxarJS/laxar_patterns#{%= laxar_version %}"
+      "laxar_patterns": "LaxarJS/laxar_patterns#{%= laxar_version %}",
+      "laxar_uikit": "LaxarJS/laxar_uikit#{%= laxar_version %}"
    },
    "devDependencies": {
       "es5-shim": "2.3.x",
