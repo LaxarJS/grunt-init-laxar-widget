@@ -112,10 +112,10 @@ module.exports = function prompts( options, init, callback ) {
       } );
 
       promptList.push( {
-         name: 'laxar_integration',
-         message: 'Integration type',
+         name: 'laxar_integration_technology',
+         message: 'Integration technology',
          default: 'angular',
-         warning: 'Must be a valid LaxarJS widget integration type.'
+         warning: 'Must be a valid LaxarJS widget integration technology (angular or plain).'
       } );
    }
 

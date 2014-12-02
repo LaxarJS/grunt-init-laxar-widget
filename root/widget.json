@@ -3,7 +3,8 @@
    "description": "{%= description %}",
 
    "integration": {
-      "type": "{%= laxar_integration %}"
+      "technology": "{%= laxar_integration_technology %}",
+      "type": "widget"
    },
 
    "features": {
