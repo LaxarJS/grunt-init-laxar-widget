@@ -2,6 +2,8 @@
 
 ## Last Changes
 
+- [#3](https://github.com/LaxarJS/grunt-init-laxar-widget/issues/3): Added basic feature configuration to `widget.json`
+
 
 ## v0.2.0
 
