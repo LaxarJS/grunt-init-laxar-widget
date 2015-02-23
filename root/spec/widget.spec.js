@@ -4,7 +4,7 @@
  * {%= homepage %}{% } %}
  */
 define( [
-   '../{%= name %}_{%= type %}',
+   '../{%= artifact %}',
    'laxar/laxar_testing'
 ], function( widgetModule, ax ) {
    'use strict';

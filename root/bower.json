@@ -1,5 +1,5 @@
 {
-   "name": "{%= namespace %}.{%= name %}_{%= type %}",
+   "name": "{%= artifact %}",
    "version": "{%= version %}",
    "description": "{%= description || title %}",
    {% if( licenses.length === 0 ) { %}"private": true,{%
