@@ -1,6 +1,6 @@
 {
-  "widget.js": "{%= name %}_{%= type %}.js",
-  "default.theme/widget.html": "default.theme/{%= name %}_{%= type %}.html",
-  "default.theme/scss/widget.scss": "default.theme/scss/{%= name %}_{%= type %}.scss",
-  "spec/widget_spec.js": "spec/{%= name %}_{%= type %}_spec.js"
+  "widget.js": "{%= artifact %}.js",
+  "default.theme/widget.html": "default.theme/{%= artifact %}.html",
+  "default.theme/scss/widget.scss": "default.theme/scss/{%= artifact %}.scss",
+  "spec/widget.spec.js": "spec/{%= artifact %}.spec.js"
 }
