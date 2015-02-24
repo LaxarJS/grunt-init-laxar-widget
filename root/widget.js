@@ -8,7 +8,7 @@ define( [
 ], function( ng ) {
    'use strict';
 
-   var moduleName = '{%= namespace %}.{%= name %}_{%= type %}';
+   var moduleName = 'widgets.{%= category %}.{%= artifact %}';
    var module     = ng.module( moduleName, [] );
 
    ///////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -5,8 +5,6 @@
  */
 @charset "UTF-8";
 
-@import "variables_all";
-
 .{%= name.replace('_', '-') + '-' + type %} {
    /* :) */
 }

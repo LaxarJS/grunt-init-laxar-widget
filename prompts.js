@@ -8,33 +8,6 @@
 var path = require('path');
 var semver = require('./semver');
 
-function toCamelCase( string ) {
-   return string.replace( /(^|_)([a-z])/g, function( x, y, initial ) {
-      return initial.toUpperCase();
-   } );
-}
-
-function toTitleCase( string ) {
-   return string.replace( /(^|[_-]|([a-z]))([A-Za-z])/, function( x, y, last, initial ) {
-      return ( last ? last + ' ' : '' ) + initial.toUpperCase();
-   } );
-}
-
-function extend( object /*, source1, source2, ..., sourceN */ ) {
-   return [].reduce.call( arguments, function( object, source ) {
-      for( var key in source ) {
-         if( source.hasOwnProperty( key ) ) {
-            object[ key ] = source[ key ];
-         }
-      }
-      return object;
-   }, {} );
-}
-
-function stripType( string, type ) {
-   return string.replace( new RegExp( '[-_]' + type + '$', 'i' ), '' );
-}
-
 /**
  * Default prompts for Widgets, Activities, etc.
  */
@@ -46,19 +19,16 @@ module.exports = function prompts( options, init, callback ) {
    var isWidget = /(widget|activity)$/.test(type);
 
    var promptList = [
-      extend( init.prompt( 'name' ), {
-         message: typeTitle + ' name',
+      extend( init.prompt( 'artifact' ), {
+         message: typeTitle + ' artifact name (must be the directory name)',
          default: function( value, props, done ) {
             done( null, path.basename( process.cwd() ) );
-         },
-         sanitize: function( value, props, done ) {
-            done( null, stripType( value, type ) );
          }
       } ),
       extend( init.prompt( 'title' ), {
          message: typeTitle + ' title',
          default: function( value, props, done ) {
-            done( null, toCamelCase( stripType( props.name, type ) ) + ( isApp ? '' : typeTitle ) );
+            done( null, toCamelCase( props.artifact ) );
          }
       } ),
       init.prompt( 'description', 'My new LaxarJS ' + type ),
@@ -98,16 +68,11 @@ module.exports = function prompts( options, init, callback ) {
        * Ask for the widget namespace first.
        */
       promptList.unshift( {
-         name: 'namespace',
-         message: typeTitle + ' namespace',
+         name: 'category',
+         message: typeTitle + ' category',
          default: function( value, props, done ) {
-            var directory = path.dirname( process.cwd() ).split( path.sep );
-            var index = directory.indexOf( 'widgets' );
-            if( index < 0 ) {
-               done( null, 'widgets.' + directory.pop() );
-            } else {
-               done( null, directory.splice( index ).join( '.' ) );
-            }
+            var directoryParts = path.dirname( process.cwd() ).split( path.sep );
+            done( null, directoryParts.pop() || 'misc' );
          }
       } );
 
@@ -121,3 +86,26 @@ module.exports = function prompts( options, init, callback ) {
 
    return promptList;
 };
+
+function toCamelCase( string ) {
+   return string.replace( /(^|_|-)([a-z])/g, function( x, y, initial ) {
+      return initial.toUpperCase();
+   } );
+}
+
+function toTitleCase( string ) {
+   return string.replace( /(^|[_-]|([a-z]))([A-Za-z])/, function( x, y, last, initial ) {
+      return ( last ? last + ' ' : '' ) + initial.toUpperCase();
+   } );
+}
+
+function extend( object /*, source1, source2, ..., sourceN */ ) {
+   return [].reduce.call( arguments, function( object, source ) {
+      for( var key in source ) {
+         if( source.hasOwnProperty( key ) ) {
+            object[ key ] = source[ key ];
+         }
+      }
+      return object;
+   }, {} );
+}
