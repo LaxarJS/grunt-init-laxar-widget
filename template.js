@@ -9,9 +9,9 @@
 exports.description = 'Create a LaxarJS widget, including Jasmine specs';
 
 // Template-specific notes to be displayed before question prompts.
-exports.notes = 'For more information about LaxarJS widget best practices, ' +
+exports.notes = 'For more information about LaxarJS artifacts, ' +
   'please see the docs at ' +
-  'https://github.com/LaxarJS/laxar/blob/master/docs/manuals/widgets_and_activities.md';
+  'https://github.com/LaxarJS/laxar/blob/master/docs/manuals/index.md';
 
 // Template-specific notes to be displayed after question prompts.
 exports.after = 'You can now start developing your widget! For more information ' +
@@ -35,9 +35,8 @@ exports.template = function( grunt, init, done ) {
       // Files to copy (and process).
       var files = init.filesToCopy( props );
 
-      if( props.author_name === 'aixigo AG' && props.licenses[0] === 'MIT' ) {
-      } else {
-         init.addLicenseFiles(files, props.licenses);
+      if( props.licenses[ 0 ] !== 'MIT' ) {
+         init.addLicenseFiles( files, props.licenses );
       }
 
       // Actually copy (and process) files.
@@ -49,7 +48,6 @@ exports.template = function( grunt, init, done ) {
    });
 
 };
-
 
 function stripType( string, type ) {
    return string.replace( new RegExp( '[-_]' + type + '$', 'i' ), '' );

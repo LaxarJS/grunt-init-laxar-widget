@@ -8,7 +8,7 @@ define( [
 ], function( ng ) {
    'use strict';
 
-   var moduleName = '{%= category %}.{%= artifact %}';
+   var moduleName = 'widgets.{%= category %}.{%= artifact %}';
    var module     = ng.module( moduleName, [] );
 
    ///////////////////////////////////////////////////////////////////////////////////////////////////////////

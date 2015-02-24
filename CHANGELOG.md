@@ -2,6 +2,8 @@
 
 ## Last Changes
 
+- [#5](https://github.com/LaxarJS/grunt-init-laxar-widget/issues/5): Allow hyphen-minus (`-`) in widget names
+
 
 ## v0.3.0
 

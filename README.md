@@ -17,7 +17,7 @@ _(Windows users, see [the documentation][grunt-init] for the correct destination
 
 ## Usage
 
-At the command-line, cd into an empty directory, run this command and follow the prompts.
+At the command-line, cd into an empty directory (e.g. `my-app/widgets/my/brand-new-widget`), run this command and follow the prompts.
 
 ```
 grunt-init laxar-widget
