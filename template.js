@@ -11,13 +11,13 @@ exports.description = 'Create a LaxarJS widget, including Jasmine specs';
 // Template-specific notes to be displayed before question prompts.
 exports.notes = 'For more information about LaxarJS artifacts, ' +
   'please see the docs at ' +
-  'https://github.com/LaxarJS/laxar/blob/master/docs/manuals/index.md';
+  'https://github.com/LaxarJS/laxar/blob/master/docs/core_concepts.md';
 
 // Template-specific notes to be displayed after question prompts.
 exports.after = 'You can now start developing your widget! For more information ' +
-  'about developing widgets with LaxarJS, please see the Getting Started guide:' +
-  '\n\n' +
-  'http://laxarjs.org/docs/getting-started';
+   'about developing widgets with LaxarJS, please refer to the manuals:' +
+   '\n\n' +
+   'http://laxarjs.org/docs/manuals/index.md';
 
 // Any existing file or directory matching this wildcard will cause a warning.
 exports.warnOn = '*';
