@@ -1,5 +1,5 @@
 {
-   "name": "{%= artifact %}",
+   "name": "{%= category %}/{%= artifact %}",
    "version": "{%= version %}",
    "description": "{%= description || title %}",
    {% if( licenses.length === 0 ) { %}"private": true,{%

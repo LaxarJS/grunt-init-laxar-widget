@@ -44,7 +44,7 @@ module.exports = function prompts( options, init, callback ) {
       init.prompt( 'version' ),
       {
          name: 'laxar_version',
-         message: 'LaxarJS version',
+         message: 'LaxarJS major version (0.x should be ok, but make sure laxar is 0.23.x or newer)',
          default: '0.x',
          validator: function( range ) {
             /* grunt-init tests validator.length */
