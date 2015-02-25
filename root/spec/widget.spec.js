@@ -14,7 +14,7 @@ define( [
       var testBed_;
 
       beforeEach( function setup() {
-         testBed_ = ax.testing.portalMocksAngular.createControllerTestBed( widgetModule.name );
+         testBed_ = ax.testing.portalMocksAngular.createControllerTestBed( '{%= category %}/{%= artifact %}' );
          testBed_.featuresMock = {};
 
          testBed_.useWidgetJson();

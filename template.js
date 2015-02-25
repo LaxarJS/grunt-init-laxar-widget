@@ -32,6 +32,8 @@ exports.template = function( grunt, init, done ) {
 
    init.process( options, prompts, function( err, props ) {
 
+      props.angularModuleName = props.title.replace( /^./, function( $0 ) { return $0.toLowerCase(); } );
+      props.angularControllerName = props.title + 'Controller';
       props.name = stripType( props.artifact, props.type );
 
       // Files to copy (and process).
