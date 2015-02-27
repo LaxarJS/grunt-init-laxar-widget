@@ -1,6 +1,6 @@
 {
   "widget.js": "{%= artifact %}.js",
   "default.theme/widget.html": "default.theme/{%= artifact %}.html",
-  "default.theme/scss/widget.scss": "default.theme/scss/{%= artifact %}.scss",
+  "default.theme/css/widget.css": "default.theme/css/{%= artifact %}.css",
   "spec/widget.spec.js": "spec/{%= artifact %}.spec.js"
 }
