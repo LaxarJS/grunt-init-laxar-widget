@@ -2,6 +2,7 @@
 
 ## Last Changes
 
+- [#7](https://github.com/LaxarJS/grunt-init-laxar-widget/issues/7): Fixed widget template CSS naming
 - [#6](https://github.com/LaxarJS/grunt-init-laxar-widget/issues/6): Use simplified angular module/controller naming
 - [#5](https://github.com/LaxarJS/grunt-init-laxar-widget/issues/5): Allow hyphen-minus (`-`) in widget names
 
