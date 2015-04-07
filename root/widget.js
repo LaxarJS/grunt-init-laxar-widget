@@ -8,9 +8,6 @@ define( [
 ], function( ng ) {
    'use strict';
 
-   var moduleName = '{%= angularModuleName %}';
-   var module     = ng.module( moduleName, [] );
-
    ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
    Controller.$inject = [ '$scope' ];
@@ -19,10 +16,8 @@ define( [
       /* :) */
    }
 
-   module.controller( '{%= angularControllerName %}', Controller );
-
    ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-   return module;
+   return ng.module( '{%= angularModuleName %}', [] ).controller( '{%= angularControllerName %}', Controller );
 
 } );
