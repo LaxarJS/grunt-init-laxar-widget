@@ -11,20 +11,18 @@ define( [
 
    describe( 'A {%= title %}', function() {
 
-      var testBed_;
+      var testBed;
 
       beforeEach( function setup() {
-         testBed_ = ax.testing.portalMocksAngular.createControllerTestBed( '{%= category %}/{%= artifact %}' );
-         testBed_.featuresMock = {};
-
-         testBed_.useWidgetJson();
-         testBed_.setup();
+         testBed = ax.testing.portalMocksAngular.createControllerTestBed( '{%= category %}/{%= artifact %}' );
+         testBed.featuresMock = {};
+         testBed.setup();
       } );
 
       ////////////////////////////////////////////////////////////////////////////////////////////////////////
 
       afterEach( function() {
-         testBed_.tearDown();
+         testBed.tearDown();
       } );
 
       ////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -34,4 +32,5 @@ define( [
       ////////////////////////////////////////////////////////////////////////////////////////////////////////
 
    } );
+
 } );
